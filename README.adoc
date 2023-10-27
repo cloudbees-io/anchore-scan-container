@@ -1,0 +1,103 @@
+= CloudBees action: Scan with Anchore
+
+Use this action to scan image binaries with the Anchore scanner to identify and fix security vulnerabilities.
+
+== Inputs
+
+[cols="2a,1a,1a,3a",options="header"]
+.Input details
+|===
+
+| Input name
+| Data type
+| Required?
+| Description
+
+| `server-url`
+| String
+| Yes
+| The Anchore server URL.
+
+| `server-username`
+| String
+| Yes
+| The Anchore server username.
+
+| `server-password`
+| String
+| Yes
+| The Anchore server password.
+
+| `server-account-name`
+| String
+| Yes
+| The Anchore server account name.
+
+| `server-proxy`
+| String
+| Yes
+| The Anchore server proxy.
+
+| `registry-url`
+| String
+| Yes
+| The image registry URL.
+
+| `registry-username`
+| String
+| Yes
+| The image registry username.
+
+| `registry-password`
+| String
+| Yes
+| The image registry password.
+
+| `image-source`
+| String
+| Yes
+| The container image source.
+
+| `image-location`
+| String
+| Yes
+| The container image location.
+
+| `image-tag`
+| String
+| Yes
+| The container image tag.
+
+|===
+
+== Usage example
+
+In your YAML file, add:
+
+[source,yaml]
+----
+      - name: Scan with Anchore
+        uses: cloudbees-io/anchore-scan-container@v1
+        with:
+          server-url: "server_url"
+          server-username: "anchore_server_username"
+          server-password: ${{ secrets.ANCHORE_PASSWORD }}
+          server-account-name: "anchore_server_account_name"
+          server-proxy: "anchore_server_proxy"
+          registry-url: ${{ vars.ANCHORE_REGISTRY }}
+          registry-username: ${{ vars.REGISTRY_USERNAME }}
+          registry-password: ${{ secrets.REGISTRY_PASSWORD }}
+          image-source: "/image_source"
+          image-location: "test-example.anchore.com/local/alpine"
+          image-tag: "latest"
+----
+
+== License
+
+This code is made available under the 
+link:https://opensource.org/license/mit/[MIT license].
+
+== References
+
+* Learn more about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform-actions/latest/[using actions in CloudBees workflows].
+* Learn about link:https://docs.cloudbees.com/docs/cloudbees-saas-platform/latest/[the CloudBees platform].
