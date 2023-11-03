@@ -2,6 +2,13 @@
 
 Use this action to scan image binaries with the Anchore scanner to identify and fix security vulnerabilities.
 
+The following registries are supported:
+
+* AWS ECR
+* Docker Hub
+* JFrog
+* Nexus
+
 == Inputs
 
 [cols="2a,1a,1a,3a",options="header"]
@@ -57,6 +64,12 @@ Use this action to scan image binaries with the Anchore scanner to identify and 
 | String
 | Yes
 | The container image source.
+Supported options are:
+
+* `aws_ecr_repo` (AWS ECR)
+* `dockerhub_repo` (Docker Hub)
+* `artifactory_repo` (JFrog)
+* `nexus_repo_binary` (Nexus)
 
 | `image-location`
 | String
@@ -76,6 +89,7 @@ In your YAML file, add:
 
 [source,yaml]
 ----
+
       - name: Scan with Anchore
         uses: cloudbees-io/anchore-scan-container@v1
         with:
