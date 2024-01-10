@@ -41,7 +41,7 @@ runs:
         REGISTRY_USERNAME: ${{ inputs.registry-username }}
         REGISTRY_PASSWORD: ${{ inputs.registry-password }}
         HTTPS_PROXY: ${{ inputs.server-proxy }}
-        CONFIG_JSON: '{\"port\":\"5001\",\"metaInfo\":{\"url\":\"${{ inputs.server-url }}\",\"username\":\"${{ inputs.server-username }}\",\"password\":\"${{ inputs.server-password }}\",\"client_secret\":\"${{ inputs.server-account-name }}\",\"toolName\":\"anchore\"},\"orchestratorInfo\":{\"assetSubType\":\"${{ inputs.image-source }}\",\"assetType\":\"BINARY\",\"assetIdentifier\":\"${{ inputs.image-location }}\",\"profileIdentifier\":\"${{ inputs.image-tag }}\"},\"metaInformation\":{\"actor\":\"${{ cloudbees.event.head_commit.author.name }}\",\"commit_id\":\"NA\",\"tenent_info\":\"NA\",\"scanner_type\":\"Container\",\"pipeline_info\":{\"id\":\"04612\",\"name\":\"test_pipeline\",\"step_id\":\"04612_test_pipeline\"}}}'
+        CONFIG_JSON: '{\"port\":\"5001\",\"metaInfo\":{\"url\":\"${{ inputs.server-url }}\",\"username\":\"${{ inputs.server-username }}\",\"password\":\"${{ inputs.server-password }}\",\"client_secret\":\"${{ inputs.server-account-name }}\",\"toolName\":\"anchore\"},\"orchestratorInfo\":{\"assetSubType\":\"${{ inputs.image-source }}\",\"assetType\":\"BINARY\",\"assetIdentifier\":\"${{ inputs.image-location }}\",\"profileIdentifier\":\"${{ inputs.image-tag }}\"},\"metaInformation\":{\"actor\":\SCM-Bot\",\"commit_id\":\"NA\",\"tenent_info\":\"NA\",\"scanner_type\":\"Container\",\"pipeline_info\":{\"id\":\"04612\",\"name\":\"test_pipeline\",\"step_id\":\"04612_test_pipeline\"}}}'
       run: |
         set -x
         cd /
