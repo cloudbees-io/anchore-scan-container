@@ -29,7 +29,7 @@ runs:
   steps:
     - id: anchore
       name: anchore
-      uses: docker://public.ecr.aws/l7o7z1g8/actions/anchore-container-actions:main-07b62d0d4f90650460d2f5349755417fba60bd06
+      uses: docker://public.ecr.aws/l7o7z1g8/actions/anchore-container-actions:main-5f801868dffa89890778faa371a2b9e25757aca5
       shell: bash
       env:
         RUN_ID: ${{ cloudbees.run_id }}
