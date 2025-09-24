@@ -30,7 +30,7 @@ runs:
     - id: anchore
       name: anchore
       uses: docker://020229604682.dkr.ecr.us-east-1.amazonaws.com/actions/anchore-container-actions:CBP-21415-V2-9233ac7b8ff49e624eb213534805e7e8fdb272a6
-      shell: bash
+      shell: sh
       env:
         RUN_ID: ${{ cloudbees.run_id }}
         JOB_ID: ${{ job.id }}
@@ -48,4 +48,4 @@ runs:
         echo "RUN ID: ${{ cloudbees.run_id }}"
         echo "Job ID: ${{ job.id }}"
         echo "Step ID: ${{ step.internal.id }}"
-        /bin/bash -c "./executables/anchore & while ! nc -z localhost 5001; do sleep 1; done && ./executables/orchestrator -scanConfig \"${CONFIG_JSON}\" execute-analyser && exit"
+        /bin/sh -c "./executables/anchore & while ! nc -z localhost 5001; do sleep 1; done && ./executables/orchestrator -scanConfig \"${CONFIG_JSON}\" execute-analyser && exit"
